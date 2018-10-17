@@ -21,7 +21,7 @@ const Student = db.define('student', {
 
   imageURL: {
     type: TEXT,
-    defaultValue: './images/default.jpeg'
+    defaultValue: './images/user.jpeg'
   },
   gpa: {
     type: DECIMAL,
