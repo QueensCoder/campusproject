@@ -13,7 +13,7 @@ const students = [
     campusId: 1
   },
   {
-    firstName: 'Rena',
+    firstName: 'rena',
     lastName: 'Ser',
     email: 'ser@ozcorp.com',
     imageURL: './images/default.jpeg',
@@ -50,12 +50,11 @@ const seed = async () => {
   try {
     await campuses.map(campus => Campus.create(campus));
     await students.map(student => Student.create(student));
+    console.log(green('Seeding success!'));
+    // db.close(); had to remove this for async call to work
   } catch (err) {
     console.log(red(err));
   }
-
-  console.log(green('Seeding success!'));
-  db.close();
 };
 
 seed().catch(err => {
