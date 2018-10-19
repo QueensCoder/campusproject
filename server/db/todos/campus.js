@@ -1,4 +1,5 @@
 const Campus = require('../models/campus');
+const Student = require('../models/students');
 
 Campus.getAll = function() {
   return Campus.findAll();
@@ -39,6 +40,10 @@ Campus.remove = async function(id) {
   } catch (err) {
     console.log(err);
   }
+};
+
+Campus.getStudents = function(id) {
+  return Campus.findById(id, { include: [{ model: Student }] });
 };
 
 module.exports = Campus;

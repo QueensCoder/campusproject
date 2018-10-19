@@ -9,9 +9,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.get('/:id/students' (req, res) => {
-
-// })
+router.get('/:id/students', async (req, res) => {
+  try {
+    res.send(await Campus.getStudents(req.params.id));
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 router.get('/:id', async (req, res) => {
   try {
