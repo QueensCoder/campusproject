@@ -19,6 +19,30 @@ const students = [
     imageURL: './images/default.jpeg',
     gpa: 4.0,
     campusId: 2
+  },
+  {
+    firstName: 'filler',
+    lastName: 'Ser',
+    email: 'ser@ozcorp.com',
+    imageURL: './images/user.jpeg',
+    gpa: 4.0,
+    campusId: 1
+  },
+  {
+    firstName: 'burt',
+    lastName: 'zert',
+    email: 'ser@ozcorp.com',
+    imageURL: './images/user.jpeg',
+    gpa: 4.0,
+    campusId: 2
+  },
+  {
+    firstName: 'gurt',
+    lastName: 'yoyo',
+    email: 'ser@ozcorp.com',
+    imageURL: './images/default.jpeg',
+    gpa: 4.0,
+    campusId: 2
   }
 ];
 
