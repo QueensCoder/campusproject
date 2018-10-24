@@ -36,6 +36,10 @@ export function postCampus(campusInfo, history) {
   return async function thunk(dispatch) {
     try {
       const { data } = await axios.post('/api/campus', campusInfo);
+      if (data === 'Campus already exists!') {
+        history.push('/entryexists');
+        return;
+      }
       dispatch(getCampus(data));
       history.push(`/campus/${data.id}`);
     } catch (err) {

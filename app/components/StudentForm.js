@@ -79,7 +79,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     handleSubmit: function(evt, firstName, lastName, email) {
       evt.preventDefault();
       const studentInfo = { firstName, lastName, email };
-      console.log(studentInfo);
       //after create the user is redirected the entry view
       dispatch(postStudent(studentInfo, ownProps.history));
       dispatch(writeFirstName(''));

@@ -46,7 +46,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleClick: function(id) {
-      console.log('here is the student id', id);
       dispatch(deleteStudent(id));
     }
   };

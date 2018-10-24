@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const SingleStudent = props => {
   const { student, campus } = props;
-  console.log(campus, 'here');
   return student && campus ? (
     <div>
       <h1>Name: {student.fullName}</h1>

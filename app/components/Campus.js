@@ -35,6 +35,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+//handleclick takes the id from campus dispatches deletecampus with it
+//delete campus then takes the id and uses it for an axios.delete request
+//which deletes the corresponding record
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: function(deleteId) {

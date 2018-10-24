@@ -35,7 +35,10 @@ export function postStudent(studentInfo, history) {
   return async function thunk(dispatch) {
     try {
       const { data } = await axios.post('/api/student', studentInfo);
-      if (data === 'Student already exists!') return;
+      if (data === 'Student already exists!') {
+        history.push('/entryexists');
+        return;
+      }
       dispatch(getStudent(data));
       history.push(`/students/${data.id}`);
     } catch (err) {

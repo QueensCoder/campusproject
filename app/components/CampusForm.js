@@ -59,7 +59,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       evt.preventDefault();
       //model requires name not campusName
       const campusInfo = { name: campusName, address };
-      console.log(campusInfo);
       //after create the user is redirected the entry view
       dispatch(postCampus(campusInfo, ownProps.history));
       dispatch(writeAddress(''));
