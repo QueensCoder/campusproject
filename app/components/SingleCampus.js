@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const SingleCampus = props => {
   const { students, campus, campusId } = props;
@@ -13,13 +14,21 @@ const SingleCampus = props => {
       <h5>{campus.address}</h5>
       <hr />
       <ul>
-        {students.map(student => (
-          <li key={student.id}>
-            <img src={student.imageURL} />
-            <h4>{student.fullName}</h4>
-          </li>
-        ))}
+        {students.length ? (
+          students.map(student => (
+            <li key={student.id}>
+              <img src={student.imageURL} />
+              <div>
+                <Link to={`/students/${student.id}`}>{student.fullName}</Link>
+              </div>
+              <hr />
+            </li>
+          ))
+        ) : (
+          <div> No Students for this Campus</div>
+        )}
       </ul>
+      <Link to="/campus">All Campuses</Link>
     </div>
   ) : (
     <h1>Loading</h1>

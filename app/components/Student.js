@@ -12,9 +12,16 @@ const Student = props => {
           return (
             <li key={student.id}>
               <img src={student.imageURL} alt="" />
-              <h5>{student.fullName}</h5>
+              <Link to={`/students/${student.id}`}>{student.fullName}</Link>
               <h5>{student.email}</h5>
-              <Link to={`/campus/${student.campusId}`}>{camp.name}</Link>
+              {camp ? (
+                <Link to={`/campus/${student.campusId}`}>
+                  Campus: {camp.name}
+                </Link>
+              ) : (
+                <h6> No Campus</h6>
+              )}
+
               <hr />
             </li>
           );
