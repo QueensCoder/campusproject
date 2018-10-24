@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { fetchAllStudents, fetchAllCampus } from '../reducers';
 import store from '../store';
-import { Student, Campus, SingleCampus, Home } from './';
-import SingleStudent from './SingleStudent';
+import {
+  Student,
+  Campus,
+  SingleCampus,
+  Home,
+  SingleStudent,
+  CampusForm,
+  StudentForm
+} from './';
 
 class Root extends Component {
   componentDidMount() {
@@ -25,8 +32,9 @@ class Root extends Component {
             <Route path="/students/:id" component={SingleStudent} />
             <Route exact path="/campus" component={Campus} />
             <Route path="/campus/:id" component={SingleCampus} />
-            <Route path="/" component={Home} />
-            <Redirect to="/" />
+            <Route exact path="/" component={Home} />
+            <Route path="/addcampus" component={CampusForm} />
+            <Route path="/addstudent" component={StudentForm} />
           </Switch>
         </main>
       </div>

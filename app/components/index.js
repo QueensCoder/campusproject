@@ -4,3 +4,5 @@ export { default as Student } from './Student';
 export { default as SingleCampus } from './SingleCampus';
 export { default as Home } from './HomePage';
 export { default as SingleStudent } from './SingleStudent';
+export { default as CampusForm } from './CampusForm';
+export { default as StudentForm } from './StudentForm';

@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { deleteStudent } from '../reducers';
 
 const Student = props => {
-  const { students, campus } = props;
+  const { students, campus, handleClick } = props;
   return (
     <div>
+      <Link to="/addstudent">Add Student</Link>
       <ul>
         {students.map(student => {
           const camp = campus.find(item => item.id === student.campusId);
@@ -21,6 +23,9 @@ const Student = props => {
               ) : (
                 <h6> No Campus</h6>
               )}
+              <div>
+                <button onClick={() => handleClick(student.id)}>X</button>
+              </div>
 
               <hr />
             </li>
@@ -38,4 +43,16 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Student);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    handleClick: function(id) {
+      console.log('here is the student id', id);
+      dispatch(deleteStudent(id));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Student);
