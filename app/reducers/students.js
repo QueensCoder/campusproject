@@ -4,6 +4,7 @@ import axios from 'axios';
 const GET_ONE_STUDENT = 'GET_ONE_STUDENT';
 const GET_ALL_STUDENTS = 'GET_ALL_STUDENTS';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
+const UPDATE_STUDENT = 'UPDATE_STUDENT';
 
 //action creators
 export function getStudent(student) {
@@ -16,6 +17,10 @@ export function getAllStudents(students) {
 
 export function removeStudent(deleteId) {
   return { type: REMOVE_STUDENT, deleteId };
+}
+
+export function updateStudent(student) {
+  return { type: UPDATE_STUDENT, student };
 }
 
 //thunk creators
@@ -60,6 +65,19 @@ export function deleteStudent(deleteId) {
   };
 }
 
+export function putStudent(student, history) {
+  return async function thunk(dispatch) {
+    try {
+      const { data } = await axios.put(`/api/student/${student.id}`, student);
+      dispatch(updateStudent(data));
+      // history.push(`/students/${data.id}`);
+      //error with history
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export default function reducer(state = [], action) {
   switch (action.type) {
     case GET_ONE_STUDENT:
@@ -70,6 +88,13 @@ export default function reducer(state = [], action) {
       return state.filter(student => student.id !== action.deleteId);
     //filters out 1 student that is to be deleted based on Id
     //needs to be done here because get/delete/post all effect this array
+
+    case UPDATE_STUDENT:
+      const nextState = state.filter(
+        student => student.id !== action.student.id
+      );
+      return [...nextState, action.student];
+
     default:
       return state;
   }

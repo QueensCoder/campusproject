@@ -74,6 +74,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     handleSubmit: function(evt, name, address, id) {
       evt.preventDefault();
+      //pass name address and id into putCampus which makes an axios
+      //request using campusId for params and name & address for reqbody
       dispatch(putCampus({ name, address, id }, ownProps.history));
       dispatch(writeCampName(''));
       dispatch(writeUpdateAddress(''));

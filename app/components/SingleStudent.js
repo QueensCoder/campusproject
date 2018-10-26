@@ -26,6 +26,9 @@ const SingleStudent = props => {
         <h6>No campus</h6>
       )}
       <div>
+        <div>
+          <Link to={`/updatestudent/${student.id}`}>Update a Student</Link>
+        </div>
         <hr />
         <Link to="/students">All Students</Link>
       </div>

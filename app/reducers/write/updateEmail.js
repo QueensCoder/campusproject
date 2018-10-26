@@ -1,6 +1,6 @@
 const UPDATE_EMAIL = 'UPDATE_EMAIL';
 
-export const updatEmail = email => {
+export const updateEmail = email => {
   return { type: UPDATE_EMAIL, email };
 };
 

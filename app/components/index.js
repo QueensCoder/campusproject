@@ -8,4 +8,5 @@ export { default as CampusForm } from './CampusForm';
 export { default as StudentForm } from './StudentForm';
 export { default as EntryExists } from './EntryExists';
 export { default as UpdateCampus } from './UpdateCampus';
+export { default as UpdateStudent } from './UpdateStudent';
 export { default as Error } from './Error';

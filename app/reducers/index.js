@@ -13,7 +13,7 @@ import lastName from './write/writeLastName';
 
 //put
 import updateFirst from './write/updateFName';
-import updateLast from './write/updateFName';
+import updateLast from './write/updateLName';
 import updateEmail from './write/updateEmail';
 import writeCampAdd from './write/writeUCampAdd';
 import writeCampName from './write/writeUName';

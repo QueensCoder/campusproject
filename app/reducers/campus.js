@@ -40,6 +40,8 @@ export function fetchAllCampus() {
 export function postCampus(campusInfo, history) {
   return async function thunk(dispatch) {
     try {
+      //if findOrCreate finds an existing record
+      //return entry exists
       const { data } = await axios.post('/api/campus', campusInfo);
       if (data === 'Campus already exists!') {
         history.push('/entryexists');
@@ -47,6 +49,7 @@ export function postCampus(campusInfo, history) {
       }
       dispatch(getCampus(data));
       history.push(`/campus/${data.id}`);
+      //if record is created take user to record
     } catch (err) {
       console.log(err);
     }
@@ -59,6 +62,7 @@ export function putCampus(campus, history) {
       const { data } = await axios.put(`/api/campus/${campus.id}`, campus);
       dispatch(updateCampus(data));
       history.push(`/campus/${campus.id}`);
+      //update store's state with new campus details see updateCampus
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +90,9 @@ export default function reducer(state = [], action) {
       return state.filter(campus => campus.id !== action.deleteId);
     case UPDATE_CAMPUS:
       const nextState = state.filter(campus => campus.id !== action.campus.id);
-      return [...nextState, action.campus];
+      return [...nextState, action.campus]; //filter removes// then add
+    //old single campus is removed, then its updated version is added/
+    //back to the store's state
     default:
       return state;
   }
