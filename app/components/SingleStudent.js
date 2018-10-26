@@ -3,7 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const SingleStudent = props => {
-  const { student, campus } = props;
+  const { student, campus, students } = props;
+  const id = Number(props.match.params.id);
+  // if (students && !student)
+  //   return (
+  //     <div>
+  //       <h1>Student Does Not Exist</h1>
+  //     </div>
+  //   );
+
   return student && campus ? (
     <div>
       <h1>Name: {student.fullName}</h1>
@@ -22,8 +30,14 @@ const SingleStudent = props => {
         <Link to="/students">All Students</Link>
       </div>
     </div>
+  ) : !students.includes(student) ? (
+    <div>
+      <h1>
+        Loading: If record does not load after 2 seconds it does not exist
+      </h1>
+    </div>
   ) : (
-    <h1>Loading</h1>
+    <h1>fail</h1>
   );
 };
 
@@ -34,7 +48,8 @@ const mapStateToProps = (state, ownProps) => {
   const id = Number(ownProps.match.params.id);
   return {
     student: state.students.find(student => student.id === id),
-    campus: state.campus
+    campus: state.campus,
+    students: state.students
   };
 };
 

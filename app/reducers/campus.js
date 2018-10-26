@@ -6,6 +6,7 @@ const GET_ONE_CAMPUS = 'GET_ONE_CAMPUS';
 //to campus array
 const GET_ALL_CAMPUS = 'GET_ALL_CAMPUS';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
+const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 //action creatorscampus
 export function getCampus(campus) {
   return { type: GET_ONE_CAMPUS, campus };
@@ -17,6 +18,10 @@ export function getAllCampus(campus) {
 
 export function removeCampus(deleteId) {
   return { type: REMOVE_CAMPUS, deleteId };
+}
+
+export function updateCampus(campus) {
+  return { type: UPDATE_CAMPUS, campus };
 }
 
 //thunk creators
@@ -48,6 +53,18 @@ export function postCampus(campusInfo, history) {
   };
 }
 
+export function putCampus(campus, history) {
+  return async function thunk(dispatch) {
+    try {
+      const { data } = await axios.put(`/api/campus/${campus.id}`, campus);
+      dispatch(updateCampus(data));
+      history.push(`/campus/${campus.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function deleteCampus(deleteId) {
   return async function thunk(dispatch) {
     try {
@@ -67,6 +84,9 @@ export default function reducer(state = [], action) {
       return action.campus;
     case REMOVE_CAMPUS:
       return state.filter(campus => campus.id !== action.deleteId);
+    case UPDATE_CAMPUS:
+      const nextState = state.filter(campus => campus.id !== action.campus.id);
+      return [...nextState, action.campus];
     default:
       return state;
   }

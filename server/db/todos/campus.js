@@ -10,10 +10,10 @@ Campus.getOne = function(id) {
 };
 
 Campus.postOrExist = async function(campusInfo) {
+  //works
   const newInfo = await Campus.findOrCreate({ where: campusInfo });
   const instance = newInfo[0]; //was it created?
   const created = newInfo[1]; //what was created
-  //need to fix id portion for find or create
   return created ? instance : 'Campus already exists!';
 };
 

@@ -7,3 +7,4 @@ export { default as SingleStudent } from './SingleStudent';
 export { default as CampusForm } from './CampusForm';
 export { default as StudentForm } from './StudentForm';
 export { default as EntryExists } from './EntryExists';
+export { default as Error } from './Error';

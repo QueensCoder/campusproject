@@ -10,7 +10,8 @@ import {
   SingleStudent,
   CampusForm,
   StudentForm,
-  EntryExists
+  EntryExists,
+  Error
 } from './';
 
 class Root extends Component {
@@ -37,12 +38,16 @@ class Root extends Component {
             <Route path="/addcampus" component={CampusForm} />
             <Route path="/addstudent" component={StudentForm} />
             <Route path="/entryexists" component={EntryExists} />
+            <Route component={Error} />
           </Switch>
         </main>
       </div>
     );
   }
 }
+
+//error is default route if other proper routes are not matched
+//sort of hacky
 
 //use exact path to make sure you do not render all campus when looking
 //for single campus

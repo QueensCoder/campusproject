@@ -7,8 +7,12 @@ const EntryExists = () => {
   return (
     <div>
       <h1>Entry Already Exists!</h1>
-      <Link to="/students">Students</Link>
-      <Link to="/campus">Campuses</Link>
+      <div>
+        <Link to="/students">Students</Link>
+      </div>
+      <div>
+        <Link to="/campus">Campuses</Link>
+      </div>
     </div>
   );
 };

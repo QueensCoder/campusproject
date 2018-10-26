@@ -15,7 +15,9 @@ Student.postOrExist = async function(studentInfo) {
   const newInfo = await Student.findOrCreate({ where: studentInfo });
   const instance = newInfo[0];
   const created = newInfo[1];
+
   //need to fix id portion for find or create
+  //keeps thinking that record is created for first time
   return created ? instance : 'Student already exists!';
 };
 
