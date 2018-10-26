@@ -11,6 +11,7 @@ import {
   CampusForm,
   StudentForm,
   EntryExists,
+  UpdateCampus,
   Error
 } from './';
 
@@ -38,6 +39,7 @@ class Root extends Component {
             <Route path="/addcampus" component={CampusForm} />
             <Route path="/addstudent" component={StudentForm} />
             <Route path="/entryexists" component={EntryExists} />
+            <Route path="/updatecampus/:id" component={UpdateCampus} />
             <Route component={Error} />
           </Switch>
         </main>

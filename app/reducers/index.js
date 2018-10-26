@@ -15,8 +15,10 @@ import lastName from './write/writeLastName';
 import updateFirst from './write/updateFName';
 import updateLast from './write/updateFName';
 import updateEmail from './write/updateEmail';
-import writeCampName from './write/writeUCampAdd';
-import writeCampAdd from './write/writeUName';
+import writeCampAdd from './write/writeUCampAdd';
+import writeCampName from './write/writeUName';
+//make sure not to mix up writes with other writes
+// or else forms will not update properly
 
 const rootReducer = combineReducers({
   students,

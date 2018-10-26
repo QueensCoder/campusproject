@@ -28,6 +28,10 @@ const SingleCampus = props => {
           <div> No Students for this Campus</div>
         )}
       </ul>
+      <div>
+        <Link to={`/updatecampus/${campusId}`}>Update a Campus</Link>
+        <hr />
+      </div>
       <Link to="/campus">All Campuses</Link>
     </div>
   ) : (
