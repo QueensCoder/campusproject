@@ -3,6 +3,8 @@
  * but feel free to change me to your heart's content!
  */
 
+@import url('https://fonts.googleapis.com/css?family=Spicy+Rice');
+
 * {
   box-sizing: border-box;
   font-family: arial, sans-serif;
@@ -15,14 +17,15 @@ body {
   margin: 0;
   width: 100vw;
 }
-
 nav {
+  display: flex;
   align-items: center;
   background-color: #333333;
   color: #c0c0c0;
-  display: flex;
+
   height: 80px;
   padding: 10px;
+  justify-content: space-between;
 }
 
 main {
@@ -30,4 +33,32 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+ul {
+  flex-wrap: wrap;
+  background-color: red;
+}
+
+li {
+  font-family: 'Times New Roman', Times, serif, 'cursive';
+  padding: 5px;
+  border: 3px solid black;
+}
+
+.delButton {
+  border-radius: 50%;
+  color: red;
+}
+
+.delButton :hover {
+  background-color: blue;
+}
+
+.name {
+  color: green;
+}
+
+.name :hover {
+  background-color: white;
 }

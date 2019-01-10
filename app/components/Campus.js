@@ -5,6 +5,7 @@ import { deleteCampus } from '../reducers';
 
 const Campus = props => {
   const { campus, handleClick } = props;
+  console.log('hi');
   return (
     <div>
       <ul>
@@ -15,6 +16,7 @@ const Campus = props => {
               <Link to={`/campus/${campus.id}`}>{campus.name}</Link>
               <h5>{campus.description}</h5>
               <h5>{campus.address}</h5>
+              <h5>testing</h5>
               <div>
                 <button onClick={() => handleClick(campus.id)}>X</button>
               </div>

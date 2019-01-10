@@ -17,6 +17,9 @@ import updateLast from './write/updateLName';
 import updateEmail from './write/updateEmail';
 import writeCampAdd from './write/writeUCampAdd';
 import writeCampName from './write/writeUName';
+import selectStudent from './selectStud';
+import selectCampus from './selectCamp';
+
 //make sure not to mix up writes with other writes
 // or else forms will not update properly
 
@@ -32,7 +35,9 @@ const rootReducer = combineReducers({
   updateFirst,
   updateLast,
   writeCampAdd,
-  writeCampName
+  writeCampName,
+  selectStudent,
+  selectCampus
 });
 
 //for all exports make sure that the action creators do not share
@@ -59,4 +64,8 @@ export * from './write/updateLName';
 export * from './write/writeUCampAdd';
 export * from './write/writeUName';
 
+//testing
+
+export * from './selectStud';
+export * from './selectCamp';
 export default rootReducer;

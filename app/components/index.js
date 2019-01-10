@@ -10,3 +10,4 @@ export { default as EntryExists } from './EntryExists';
 export { default as UpdateCampus } from './UpdateCampus';
 export { default as UpdateStudent } from './UpdateStudent';
 export { default as Error } from './Error';
+export { default as Testing } from './StudentToCamp';

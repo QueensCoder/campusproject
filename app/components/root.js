@@ -13,7 +13,8 @@ import {
   EntryExists,
   UpdateCampus,
   UpdateStudent,
-  Error
+  Error,
+  Testing
 } from './';
 
 class Root extends Component {
@@ -29,6 +30,8 @@ class Root extends Component {
           Welcome! <Link to="/students">Students</Link>{' '}
           <Link to="/campus">Campus</Link>
           <Link to="/">Home</Link>
+          <Link to="/testing">Testing</Link>
+          {/* <Link to="/testing">testing</Link> */}
         </nav>
         <main>
           <Switch>
@@ -42,6 +45,7 @@ class Root extends Component {
             <Route path="/entryexists" component={EntryExists} />
             <Route path="/updatecampus/:id" component={UpdateCampus} />
             <Route path="/updatestudent/:id" component={UpdateStudent} />
+            <Route exact path="/testing" component={Testing} />
             <Route component={Error} />
           </Switch>
         </main>

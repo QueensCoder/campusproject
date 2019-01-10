@@ -14,7 +14,9 @@ const Student = props => {
           return (
             <li key={student.id}>
               <img src={student.imageURL} alt="" />
-              <Link to={`/students/${student.id}`}>{student.fullName}</Link>
+              <Link className="name" to={`/students/${student.id}`}>
+                {student.fullName}
+              </Link>
               <h5>{student.email}</h5>
               {camp ? (
                 <Link to={`/campus/${student.campusId}`}>
@@ -24,7 +26,12 @@ const Student = props => {
                 <h6> No Campus</h6>
               )}
               <div>
-                <button onClick={() => handleClick(student.id)}>X</button>
+                <button
+                  className="delButton"
+                  onClick={() => handleClick(student.id)}
+                >
+                  X
+                </button>
               </div>
 
               <hr />
