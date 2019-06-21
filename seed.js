@@ -1,5 +1,6 @@
 const { db, Student, Campus } = require('./server/db');
 const { green, red } = require('chalk');
+
 //require db student and campus from db/index
 //now we can sync db and seed db
 
@@ -75,7 +76,7 @@ const seed = async () => {
     await campuses.map(campus => Campus.create(campus));
     await students.map(student => Student.create(student));
     console.log(green('Seeding success!'));
-    // db.close(); had to remove this for async call to work
+    //await db.close(); //had to remove this for async call to work
   } catch (err) {
     console.log(red(err));
   }

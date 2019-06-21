@@ -70,7 +70,8 @@ export function putStudent(student, history) {
     try {
       const { data } = await axios.put(`/api/student/${student.id}`, student);
       dispatch(updateStudent(data));
-      console.log(data);
+      console.log(data, 'data');
+      console.log(history, 'history');
       history.push(`/students/${data.id}`);
       //error with history
     } catch (err) {

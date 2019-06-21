@@ -102,7 +102,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       //id is used to make put request at correct route
       //see put Student
       evt.preventDefault();
-      dispatch(putStudent({ email, firstName, lastName, id }));
+      dispatch(
+        putStudent({ email, firstName, lastName, id }, ownProps.history)
+      );
       //put student takes object that contains all of aforementioned info
       //and takes ownProps.history to change view to single studentview
       //after the student has been updated

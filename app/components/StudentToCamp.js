@@ -12,12 +12,12 @@ const AddStudentToCamp = props => {
     selectStudent,
     selectCampus
   } = props;
-  const stud = students.find(stu => stu.id === Number(selectStudent));
-  const update = { ...stud, campusId: Number(selectCampus) };
+  //const stud = students.find(stu => stu.id === Number(selectStudent));
+  // const update = { ...stud, campusId: Number(selectCampus) };
   return (
     <div>
       {students && campus ? (
-        <form onSubmit={evt => onSubmit(evt, update)}>
+        <form onSubmit={evt => onSubmit(evt, selectStudent, selectCampus)}>
           <select onChange={onChange}>
             <option>Select a student</option>
             {students.map(stud => {
@@ -70,13 +70,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     onSubmit: (evt, sId, cId) => {
       evt.preventDefault();
-      const studentId = Number(sId);
+      //console.log(sId, cId, 'here');
+      const id = Number(sId);
       const campusId = Number(cId);
-
+      //console.log(id, campusId);
       // if (!sId || !cId) {
       //   alert('Please select a student and campus before submitting');
       // } else {
-      dispatch(putStudent({ studentId, campusId }, ownProps.history));
+      dispatch(putStudent({ id, campusId }, ownProps.history));
       dispatch(selectStudent(''));
       dispatch(selectCamp(''));
       // }
